@@ -1,0 +1,136 @@
+/* hyper-vyper docs: a light CrowdCent touch on the default theme.
+   Brand rules: sharp corners, no accent bars, cyan on Dark Abyss,
+   Poppins for prose, Consolas/Monaco for data and code. */
+
+:root {
+  --brand-primary: #005380;
+  --brand-accent: #62e4fb;
+  --bg-primary: #001926;
+  --bg-secondary: #01334a;
+  --bg-dark-subtle: #0a2936;
+  --border-color: rgba(98, 228, 251, 0.2);
+
+  --md-code-font: "Consolas", "Monaco", monospace;
+}
+
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+/* Light scheme: blue links */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--brand-primary);
+  --md-accent-fg-color: var(--brand-primary);
+  --md-typeset-a-color: var(--brand-primary);
+
+  --rule-color: #dde4ea;
+  --payload-bg: #f5f8fa;
+  --payload-pad: #aab6c0;
+  --payload-val: var(--brand-primary);
+
+  --md-mermaid-node-bg-color: #eef6fa;
+  --md-mermaid-node-fg-color: var(--bg-primary);
+  --md-mermaid-edge-color: var(--brand-primary);
+  --md-mermaid-label-bg-color: #ffffff;
+  --md-mermaid-label-fg-color: var(--bg-primary);
+  --md-mermaid-sequence-actor-bg-color: #eef6fa;
+  --md-mermaid-sequence-actor-border-color: var(--brand-primary);
+  --md-mermaid-sequence-actor-fg-color: var(--bg-primary);
+  --md-mermaid-sequence-actor-line-color: #9fb3c2;
+  --md-mermaid-sequence-message-line-color: var(--brand-primary);
+  --md-mermaid-sequence-note-bg-color: #f5f8fa;
+  --md-mermaid-sequence-note-border-color: #9fb3c2;
+}
+
+/* Dark scheme: Dark Abyss background, cyan accent */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: var(--bg-primary);
+  --md-default-bg-color--light: var(--bg-primary);
+  --md-primary-fg-color: var(--brand-accent);
+  --md-accent-fg-color: var(--brand-accent);
+  --md-typeset-a-color: var(--brand-accent);
+  --md-code-bg-color: var(--bg-dark-subtle);
+  --md-footer-bg-color: var(--bg-primary);
+  --md-footer-bg-color--dark: var(--bg-primary);
+  --md-typeset-table-color: var(--border-color);
+
+  --rule-color: var(--border-color);
+  --payload-bg: var(--bg-dark-subtle);
+  --payload-pad: #3a5c6e;
+  --payload-val: var(--brand-accent);
+
+  --md-mermaid-node-bg-color: var(--bg-dark-subtle);
+  --md-mermaid-node-fg-color: #ffffff;
+  --md-mermaid-edge-color: var(--brand-accent);
+  --md-mermaid-label-bg-color: var(--bg-primary);
+  --md-mermaid-label-fg-color: rgba(255, 255, 255, 0.85);
+  --md-mermaid-sequence-actor-bg-color: var(--bg-dark-subtle);
+  --md-mermaid-sequence-actor-border-color: var(--brand-accent);
+  --md-mermaid-sequence-actor-fg-color: #ffffff;
+  --md-mermaid-sequence-actor-line-color: rgba(98, 228, 251, 0.35);
+  --md-mermaid-sequence-message-fg-color: #ffffff;
+  --md-mermaid-sequence-message-line-color: var(--brand-accent);
+  --md-mermaid-sequence-note-bg-color: var(--bg-secondary);
+  --md-mermaid-sequence-note-border-color: var(--border-color);
+  --md-mermaid-sequence-note-fg-color: #ffffff;
+}
+
+/* Hairline under the tabs */
+.md-tabs {
+  border-bottom: 1px solid var(--rule-color);
+}
+
+/* Byte-layout figures: one row per ABI word, label above its bytes */
+.md-typeset figure.payload {
+  display: block;
+  max-width: 100%;
+  margin: 1.5em 0;
+  padding: 0.4rem 0.8rem 0.6rem;
+  background: var(--payload-bg);
+  border: 1px solid var(--rule-color);
+  overflow-x: auto;
+  text-align: left;
+}
+.md-typeset .payload-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--rule-color);
+}
+.md-typeset .payload-label {
+  font-size: 0.64rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset code.payload-hex {
+  order: 1;
+  padding: 0;
+  background: none;
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+.md-typeset .payload-hex .pad {
+  color: var(--payload-pad);
+}
+.md-typeset .payload-hex .val {
+  color: var(--payload-val);
+  font-weight: 700;
+}
+.md-typeset figure.payload figcaption {
+  max-width: none;
+  margin: 0.5rem 0 0;
+  font-size: 0.64rem;
+  font-style: normal;
+  text-align: left;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Narrow screens: wrap each 32-byte word so the significant bytes stay visible */
+@media screen and (max-width: 44.9375em) {
+  .md-typeset code.payload-hex {
+    white-space: normal;
+    word-break: break-all;
+  }
+}

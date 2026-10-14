@@ -1,0 +1,6 @@
+{
+  "name": "hyper-vyper-solidity-reference",
+  "private": true,
+  "description": "Pinned compiler used only to reproduce test reference bytecode",
+  "devDependencies": {"solc": "0.8.30"}
+}

@@ -1,0 +1,107 @@
+[project]
+site_name = "hyper-vyper"
+site_description = "Understand and use the Vyper library connecting HyperEVM contracts to HyperCore."
+site_author = "CrowdCent"
+copyright = 'Made by <a href="https://crowdcent.com">CrowdCent</a>'
+docs_dir = "docs"
+site_dir = "site"
+dev_addr = "127.0.0.1:8000"
+extra_css = ["assets/stylesheets/extra.css"]
+site_url = "https://crowdcent.github.io/hyper-vyper/"
+repo_url = "https://github.com/crowdcent/hyper-vyper"
+repo_name = "crowdcent/hyper-vyper"
+nav = [
+  { "Overview" = [
+    { "Home" = "index.md" },
+    { "Install and quick start" = "getting-started.md" },
+    { "Concepts" = "concepts.md" },
+    { "Security" = "security.md" },
+    { "Contributing" = "contributing.md" },
+  ] },
+  { "Modules" = [
+    { "Overview" = "modules/index.md" },
+    { "constants.vy" = "modules/constants.md" },
+    { "precompiles.vy" = "modules/precompiles.md" },
+    { "core_writer.vy" = "modules/core-writer.md" },
+    { "conversions.vy" = "modules/conversions.md" },
+    { "bridge.vy" = "modules/bridge.md" },
+  ] },
+  { "Tutorials" = [
+    { "Overview" = "tutorials/index.md" },
+    { "Testnet setup" = "tutorials/testnet-setup.md" },
+    { "1. Read Core state" = "tutorials/read-state.md" },
+    { "2. Activate a contract account" = "tutorials/activate-account.md" },
+    { "3. Move USDC between spot and perp" = "tutorials/spot-perp.md" },
+    { "4. Move USDC between EVM and Core" = "tutorials/evm-core.md" },
+    { "5. Place spot and perp orders" = "tutorials/spot-order.md" },
+  ] },
+  { "Testing" = [
+    { "Testing quick start" = "testing/quick-start.md" },
+    { "Repository tests" = "testing/repository-tests.md" },
+  ] },
+  { "Reference" = [
+    { "API" = "reference/api.md" },
+    { "Solidity compatibility" = "reference/compatibility.md" },
+  ] },
+]
+
+[project.theme]
+language = "en"
+features = [
+  "navigation.tabs",
+  "navigation.sections",
+  "navigation.path",
+  "navigation.footer",
+  "navigation.top",
+  "toc.follow",
+  "content.code.copy",
+  "search.highlight",
+]
+font.text = "Poppins"
+logo = "assets/images/cc_logo.png"
+favicon = "assets/images/cc_logo.png"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "custom"
+toggle.icon = "material/brightness-7"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "custom"
+toggle.icon = "material/brightness-4"
+toggle.name = "Switch to light mode"
+
+[project.markdown_extensions]
+admonition = {}
+attr_list = {}
+pymdownx.details = {}
+pymdownx.highlight = { anchor_linenums = true }
+pymdownx.inlinehilite = {}
+pymdownx.snippets = { base_path = ["."], check_paths = true }
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+
+[project.extra]
+generator = false
+
+[[project.extra.social]]
+icon = "fontawesome/brands/discord"
+link = "https://discord.gg/v6ZSGuTbQS"
+name = "CrowdCent on Discord"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/x-twitter"
+link = "https://x.com/CrowdCent"
+name = "CrowdCent on X"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/crowdcent/hyper-vyper"
+name = "hyper-vyper on GitHub"
